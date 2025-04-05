@@ -1,0 +1,567 @@
+/* Configure */
+:root {
+    --main-text-shadow-style: rgb(0, 0, 0) 1px 1px 2px;
+    --black-text: #000;
+    --black-tr-text: rgba(0, 0, 0, .3)
+}
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+.paragraph {
+    color: #a9a9a9;
+    text-shadow: #a9a9a9 1px 1px 10px;
+    font-size: 17px;
+}
+.headline {
+    color: #333;
+    text-shadow: #333 1px 1px 6px;
+}
+/* BreadCrump */
+.breadcrump-nav {
+    margin-top: 50px;
+}
+
+/* Button style inspiration */
+.button--ujarak {
+	-webkit-transition: border-color 0.4s, color 0.4s;
+	transition: border-color 0.4s, color 0.4s;
+}
+.button--ujarak::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #333;
+	z-index: -1;
+	opacity: 0;
+	-webkit-transform: scale3d(0.7, 1, 1);
+	transform: scale3d(0.7, 1, 1);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+	transition: transform 0.4s, opacity 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--ujarak.button--round-s::before {
+	border-radius: 2px;
+}
+.button--ujarak.button--inverted::before {
+	background: #333;
+}
+.button--ujarak,
+.button--ujarak::before {
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--ujarak:hover {
+	color: #fff;
+	border-color: #333;
+}
+.button--ujarak.button--inverted:hover {
+	color: #333;
+	border-color: #fff;
+}
+.button--ujarak:hover::before {
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+/* Common button styles */
+.button {
+	float: left;
+	min-width: 150px;
+	max-width: 250px;
+	display: block;
+	margin-top: 1em;
+	padding: 1em 2em;
+	border: none;
+	background: none;
+	color: inherit;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+    color: #ECEFF1;
+    border-color: #ECEFF1;    
+}
+.button:focus {
+	outline: none;
+}
+.button > span {
+	vertical-align: middle;
+}
+.button--border-medium {
+	border: 2px solid;
+}
+.button--ujarak.button--round-s::before {
+	border-radius: 2px;
+}
+.button--text-thick {
+	font-weight: 600;
+}
+
+/* Navbar */
+.navbar {
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+    background-color: var(--black-tr-text);
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+}
+.navbar-brand {
+    font-weight: bold;
+    background-color: transparent;
+}
+.navbar .nav-item .nav-link {
+    color: #FFF;
+    position: relative;
+}
+
+.nav-link:not(.dropdown-toggle) {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: inline-block;
+}
+
+/* Underline effect for non-dropdown links */
+.nav-link:not(.dropdown-toggle)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%; /* Start from center */
+    transform: translateX(-50%); /* Center alignment */
+    background-color: #fff;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:not(.dropdown-toggle):hover::after {
+    width: 100%;
+    left: 50%; /* Grow from center */
+}
+
+.nav-item.active .nav-link:not(.dropdown-toggle)::after {
+    width: 100%;
+    left: 50%;
+    background-color: #fff;
+}
+
+.logo-image img {
+    position: absolute;
+    top: -40px;
+    height: 150px;
+    width: 150px;
+}
+.custom-dropdown {
+    width: auto;
+}
+
+/* Home Carousel */
+.home-slider-context {
+    position: relative;
+}
+.home-slider-context .layer-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-tr-text)
+}
+.home-slider-context .slide-title {
+    font-family: serif;
+    color: #fff;
+    width: auto;
+    line-height: 1;
+    text-shadow: var(--main-text-shadow-style);
+    font-weight: bold;
+}
+.home-slider-context .slide-sub-text {
+    text-shadow: var(--main-text-shadow-style)
+}
+.home-slider-context .slider-context {
+    margin-left: -10%
+}
+.home-slider-context .logo-image {
+    position: relative;
+}
+.home-slider-context .logo-image > img {
+    position: absolute;
+    bottom: -75px;
+    width: 160px;
+    height: 150px;
+    z-index: 1;
+}
+.logo-image > .index-link {
+    position: absolute;
+    top: -40px;
+    height: 110px;
+    width: 150px;
+    z-index: 2;
+}
+.hori-selector {
+    margin-top: 0;
+    background-color: unset;
+}
+.hori-selector .left, .hori-selector .right {
+    background-color: unset;
+}
+#navbarSupportedContent ul li a {
+    font-size: 17px;
+}
+#navbarSupportedContent>ul>li.active>a {
+    /* border-bottom: 2px solid #FFF; */
+    color: #FFF;
+    transition: .3s all ease-in-out;
+}
+.home-slider-context .carousel-item {
+    position: relative;
+}
+.home-slider-context .carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+.carousel-btn {
+    position: relative;
+    bottom: 100px;
+}
+.carousel-btn button {
+    background-color: #FFF
+}
+.carousel-control-prev {
+    left: 80%
+}
+
+/* Slick Slider For Our Services */
+.carousel-container {
+    width: 100%;
+    margin: auto;
+    padding: 40px 0;
+    position: relative;
+}
+.destination-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: .6%;
+}
+.destination-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.destination-card img:hover {
+    transition: all .3s ease-in-out;
+}
+.destination-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    text-align: left;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.slick-slide-btn {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    border: none;
+    z-index: 10;
+    position: absolute;
+    top: -15%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Left Button - White to Black Gradient */
+.slick-slide-btn-left {
+    left: 90%;
+    background: #fff;
+    color: #000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.slick-slide-btn-left:hover, 
+.slick-slide-btn-left:focus {
+    background: linear-gradient(145deg, #333, #000);
+    color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* Right Button - Black Gradient */
+.slick-slide-btn-right {
+    right: -10px;
+    background: linear-gradient(145deg, #333, #000);
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.slick-slide-btn-right:hover, 
+.slick-slide-btn-right:focus {
+    background: linear-gradient(145deg, #000, #222);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+    transform: scale(1.1);
+}
+.slick-slider {
+    margin-top: 30px;
+}
+
+
+.our-services {
+    margin-top: 100px
+}
+.our-services .fast-track-service-desc h1 {
+    font-family: serif;
+    font-weight: normal;
+}
+/* Footer */
+.footer .container {
+    padding-bottom: 60px !important;
+}
+.footer a {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6) !important;
+    display: block;
+    width: auto;
+    line-height: 20px;
+    line-height: 2;
+}
+.footer .title {
+    font-size: 28px;
+    color: #fff;
+    font-family: serif;
+    margin-bottom: 32px;
+}
+.footer .fa-phone {
+    transform: rotateY(180deg);
+}
+.footer .content {
+    font-size: 22px;
+}
+.footer .social-link {
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    width: 45px;
+    height: 45px;
+    margin-top: 30px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px;
+}
+.footer .fa-facebook-f {
+    background-color: #1877F2
+}
+.footer .fa-instagram {
+    background-color: #FCAF45
+}
+.footer .fa-snapchat-ghost {
+    background-color: #fffc00
+}
+.footer .fa-whatsapp {
+    background-color: #075e54
+}
+
+/* fast-track-service Page */
+.fast-track-service {
+    position: relative;
+    background-image: url('../images/fast%20track/Airport%20Departure%20Delays%20Banner.jpg');
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    width: 100%;
+    min-height: 60vh;
+}
+.fast-track-service .fast-track-title {
+    font-family: serif;
+    color: #fff;
+    width: auto;
+    line-height: 1;
+    text-shadow: var(--main-text-shadow-style);
+    font-weight: bold;
+}
+.fast-track-service .service-content {
+    margin-top: 20%
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Service card */
+.service-card {
+    margin-top: 100px;
+    margin-bottom: 150px
+}
+
+.service-card .card-img, .service-card .card-img-top {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.service-card .card {
+    border-radius: 10px;
+    border: unset;
+    transition: all .3s ease-in-out;
+}
+.service-card .card:hover {
+    box-shadow: 1px 1px 6px 4px #eeeeee;
+    border: unset
+}
+#read-more-toggle {
+    display: none;
+}
+.filter-option {
+    border: 1px solid #DDD;
+    height: 300px;
+    border-radius: 10px 
+}
+.filter-option .head { 
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.filter-option .options {
+    padding: 10px;
+    font-size: 18px;
+}
+.card .slick-slider {
+    margin-top: 0 !important
+}
+
+/* Book Now Popup */
+/* Popup Overlay */
+.popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Content */
+.popup-overlay .popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Close Button */
+.popup-overlay .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Form Styling */
+.popup-overlay form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.popup-overlay .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-overlay label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.popup-overlay input, .popup-overlay select,.popup-overlay  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.popup-overlay textarea {
+    resize: vertical;
+}
+
+.popup-overlay button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-overlay button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styling the "Book Now" button */
+.popup-overlay .book-now-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-overlay .book-now-btn:hover {
+    background-color: #218838;
+}
+
+/* About us */
+.about-us {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.about-us h2 {
+    font-family: serif;
+    font-weight: normal;
+}
+.about-us .button {
+    color: unset
+}
+.about-us .button:hover {
+    color: #fff
+}

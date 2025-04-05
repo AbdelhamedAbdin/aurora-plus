@@ -1,0 +1,161 @@
+<%- include('partials/start_body') %>
+        <!-- Start Carousel -->
+        <div class="fast-track-service">
+            <div class="overlay">
+                <div class="container">
+                    <div class="service-content">
+                        <h1 class="fast-track-title">
+                            Airport & Concierge Services
+                        </h1>
+                        <p class="text-light">
+                            Skip the queues and avoid airport crowds with our Fast Track and Meet & Assist services, ensuring speed, comfort, and privacy.
+                        </p>
+                        <p class="text-light">
+                            Enjoy premium limousine and car services for city tours, intercity travel, and visits to top tourist attractions, all in comfort and style.
+                        </p>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Carousel -->
+
+        <!-- Start BreadCrump -->
+        <nav class="breadcrump-nav" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Airport & Concierge Services</li>
+                </ol>
+                <hr>
+            </div>
+        </nav>
+        <!-- End BreadCrump -->        
+
+        <!-- Send To Whatsapp When Success -->
+        <% if (submitted) { %>
+        <div class="service-sent-successfully">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            Your request has been sent and is under review now. follow up your WhatsApp we will send you soon!
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+        <!-- Start Service Cards -->
+        <div class="service-card">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Filter Options -->
+                    <div class="col-3">
+                        <div class="filter-option">
+                            <p class="lead head">Service</p>
+                            <ul class="list-unstyled options">
+                                <li class="mb-2">
+                                    <label for="airports"> 
+                                        <input type="checkbox" id="airports" data-service-filter="airports" /> 
+                                        Airport & Concierge Services
+                                    </label>
+                                </li>
+                                <li class="mb-2">
+                                    <label for="sights"> 
+                                        <input type="checkbox" id="sights" data-service-filter="sights" />
+                                        Sights
+                                    </label>
+                                </li>
+                                <li class="mb-2">
+                                    <label for="cars"> 
+                                        <input type="checkbox" id="cars" data-service-filter="cars" />
+                                        Cars & limousine
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Filter Options -->
+        
+                    <!-- Start Card -->
+                    <div class="col-9 service-card-track">
+                        <div class="row">
+                            <!-- Airport and Concierge Services -->
+                            <div class="col-4 airports">
+                                <div class="card">
+                                    <img src="./images/fast track/fast track.jpeg" class="card-img-top" alt="Fast Track Service">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Fast Track</h5>
+                                        <p class="card-text card-text-event">
+                                            A quick and smooth airport service where our agent greets the guest at the passport hall and assists them through all procedures, helping them avoid queues. The process takes no more than 5 minutes.
+                                        </p>
+                                        <p class="price">$43</p>
+                                        <button class="btn btn-primary book-now-btn">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 airports">
+                                <div class="card">
+                                    <img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="VIP Service">
+                                    <div class="card-body">
+                                        <h5 class="card-title">VIP Track</h5>
+                                        <p class="card-text card-text-event">
+                                            Guests are escorted to a VIP lounge upon arrival, where they enjoy snacks while our team handles all procedures. An officer comes to the lounge to stamp the passport, allowing the guest to relax until luggage arrives.
+                                        </p>
+                                        <p class="price">$43</p>
+                                        <button class="btn btn-primary book-now-btn">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sight Services -->
+                            <div class="col-4 sights">
+                                <div class="card">
+                                    <!-- Slick Slider -->
+                                    <div class="card-slider">
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 1"></div>
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 2"></div>
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 3"></div>
+                                    </div>
+                            
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sightseeing</h5>
+                                        <p class="card-text card-text-event">
+                                            Explore top sightseeing destinations across the country with curated lists tailored for tourists to discover the most iconic and hidden gems in every region.
+                                        </p>
+                                        <button class="btn btn-primary book-now-btn">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Cars and Limousine Services -->
+                            <div class="col-4 cars">
+                                <div class="card">
+                                    <!-- Slick Slider -->
+                                    <div class="card-slider">
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 1"></div>
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 2"></div>
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 3"></div>
+                                    </div>
+                            
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cars & Limousine</h5>
+                                        <p class="card-text card-text-event">
+                                            Experience luxury with our car and limousine tours, taking you through the city's top sights or beyond. Book your tailored tour today!
+                                        </p>
+                                        <button class="btn btn-primary book-now-btn">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div> <!-- end inner row -->
+                    </div>
+                    <!-- End Card -->
+                </div>
+            </div>
+        </div>
+        <!-- End Service Cards -->
+        <%- include('components/popup_service') %>
+<%- include('partials/end_body') %>

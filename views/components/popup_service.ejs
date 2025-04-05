@@ -1,0 +1,39 @@
+<!-- popup_service.ejs -->
+<div id="popup-form" class="popup-overlay">
+    <div class="popup-content">
+        <span id="close-btn" class="close-btn">&times;</span>
+        <h3>Booking Form</h3>
+        <form id="booking-form" method="post" action="/fast-track-service">
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="nationality">Nationality</label>
+                <input type="text" id="nationality" name="nationality" required>
+            </div>
+            <!-- This will get updated dynamically -->
+            <input type="hidden" id="service-type" name="service-type" value="">
+            <div class="form-group">
+                <label for="phone-number">Phone Number (WhatsApp)</label>
+                <input type="text" id="phone-number" name="phone-number" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="extra-note">Extra Note (Optional)</label>
+                <textarea id="extra-note" name="extra-note" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+:root {
+    --main-text-shadow-style: rgb(0, 0, 0) 1px 1px 2px;
+    --black-text: #000;
+    --black-tr-text: rgba(0, 0, 0, .3)
+}
+
+/* Mobile Screen */
+@media (min-width: 0) and (max-width: 576px) {
+    .sidebar {
+        margin-top: 300px;
+        margin-left: 100px
+    }
+    #navbarSupportedContent {
+        background-color: var(--black-color) !important
+    }
+}
+
+/* Tablet Screen */
+@media (min-width: 576px) and (max-width: 768px) {
+    #navbarSupportedContent {
+        background-color: var(--black-color) !important
+    }
+}
+
+/* Notebook Screen */
+@media (min-width: 768px) and (max-width: 992px) {
+    #navbarSupportedContent {
+        background-color: var(--black-color) !important
+    }
+}
