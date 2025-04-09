@@ -345,6 +345,10 @@ body {
     line-height: 20px;
     line-height: 2;
 }
+.footer a:hover {
+    color: #fff !important;
+    transition: all .3s ease-in-out;
+}
 .footer .title {
     font-size: 28px;
     color: #fff;

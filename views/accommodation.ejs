@@ -1,0 +1,85 @@
+<%- include('partials/start_body') %>
+        <!-- Start Carousel -->
+        <div class="fast-track-service">
+            <div class="overlay">
+                <div class="container">
+                    <div class="service-content">
+                        <h1 class="fast-track-title">
+                            Accommodation Services
+                        </h1>
+                        <p class="text-light">
+                            Skip the queues and avoid airport crowds with our Fast Track and Meet & Assist services, ensuring speed, comfort, and privacy.
+                        </p>
+                        <p class="text-light">
+                            Enjoy premium limousine and car services for city tours, intercity travel, and visits to top tourist attractions, all in comfort and style.
+                        </p>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Carousel -->
+
+        <!-- Start BreadCrump -->
+        <nav class="breadcrump-nav" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Accommodation Services</li>
+                </ol>
+                <hr>
+            </div>
+        </nav>
+        <!-- End BreadCrump -->        
+
+        <!-- Send To Whatsapp When Success -->
+        <% if (submitted) { %>
+        <div class="service-sent-successfully">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            Your request has been sent and is under review now. follow up your WhatsApp we will send you soon!
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+        <!-- Start Service Cards -->
+        <div class="service-card">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Card -->
+                    <div class="col-12 service-card-accommodition">
+                        <div class="row">
+                            <!-- Cars and Limousine Services -->
+                            <div class="col-4 cars">
+                                <div class="card">
+                                    <!-- Slick Slider -->
+                                    <div class="card-slider">
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 1"></div>
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 2"></div>
+                                        <div><img src="./images/fast track/VIP Service1.jpeg" class="card-img-top" alt="Sight 3"></div>
+                                    </div>
+                            
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cairo Hotels</h5>
+                                        <p class="card-text card-text-event">
+                                            From the vibrant charm of Downtown Cairo to the modern luxury of New Cairo, the city offers a diverse range of hotel experiences. Whether you're staying near the airport for convenience, enjoying the historical views in Giza, or relaxing in the calm of 6th of October, Cairo's hotels blend comfort, hospitality, and easy access to the city's rich culture and attractions.
+                                        </p>
+                                        <button class="btn btn-primary book-now-btn">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div> <!-- end inner row -->
+                    </div>
+                    <!-- End Card -->
+                </div>
+            </div>
+        </div>
+        <!-- End Service Cards -->
+        <%- include('components/popup_service') %>
+<%- include('partials/end_body') %>

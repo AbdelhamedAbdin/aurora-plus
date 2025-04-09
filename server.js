@@ -41,6 +41,11 @@ app.post('/fast-track-service', (req, res) => {
     res.redirect('/fast-track-service?submitted=true');
 });
 
+app.get("/accommodation", (req, res) => {
+    const submitted = req.query.submitted === 'true';
+    res.render('accommodation', {title: "Accommodation Service Page", submitted});
+})
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
