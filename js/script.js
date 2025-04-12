@@ -1,11 +1,22 @@
 var myCarousel = document.querySelector('#carouselHome');
 var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: false,  // Disables auto-cycling
+    interval: true,  // Disables auto-cycling
+    interval: 4000,
 })
 
 
 // Add Slider for Fast and Track Service
 $(document).ready(function(){
+
+    // nav-link active
+    document.querySelectorAll("li[data-nav-link]").forEach(listOfLinks => {
+        let pathName = listOfLinks.dataset.navLink;
+        if (pathName === window.location.pathname) {
+            listOfLinks.classList.add('active');
+            return;
+        }
+    });
+
     $('.fast-track-slider').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -43,7 +54,7 @@ $(document).ready(function(){
 
     // fast track filter
     const checkboxes = document.querySelectorAll('input[type="checkbox"][data-service-filter]');
-    const cards = document.querySelectorAll('.service-card-track .col-4');
+    const cards = document.querySelectorAll('.service-card-track .col-lg-4');
 
     function filterCards() {
         // Get all checked filters
@@ -115,5 +126,84 @@ $(document).ready(function(){
             popupForm.style.display = 'none';
         }
     });
+
+    // Example popup open logic from your button
+    bookNowButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const serviceType = this.closest('.card').querySelector('h5').textContent.trim();
+            document.getElementById('popup-form').style.display = 'block';
+            document.getElementById('service-type').value = serviceType;
+
+            // Show/hide "area" field only if Cairo is selected
+            const areaGroup = document.getElementById('area-group');
+            if (serviceType.toLowerCase().includes('cairo')) {
+                areaGroup.style.display = 'block';
+            } else {
+                areaGroup.style.display = 'none';
+            }
+        });
+    });
+
+    // Close popup
+    document.getElementById('close-btn').addEventListener('click', function () {
+        document.getElementById('popup-form').style.display = 'none';
+    });
+
+    // Load nationalities
+    fetch('/api/nationalities')
+        .then(res => res.json())
+        .then(nationalities => {
+            const select = document.getElementById('nationality');
+            nationalities.forEach(nat => {
+                const option = document.createElement('option');
+                option.value = nat;
+                option.textContent = nat;
+                select.appendChild(option);
+            });
+        });
+
+        const checkInInput = document.getElementById("check-in");
+        const checkOutInput = document.getElementById("check-out");
+    
+        function showError(input, message) {
+            alert(message); // or show under input with custom element
+            input.value = "";
+            input.focus();
+        }
+    
+        checkInInput.addEventListener("change", function () {
+            const today = new Date();
+            const selectedDate = new Date(checkInInput.value);
+            
+            today.setHours(0, 0, 0, 0);
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+    
+            if (selectedDate < tomorrow) {
+                showError(checkInInput, "Check-in date must be at least from tomorrow.");
+            }
+    
+            // Reset check-out if it no longer makes sense
+            if (checkOutInput.value) {
+                const checkOutDate = new Date(checkOutInput.value);
+                if (checkOutDate <= selectedDate) {
+                    showError(checkOutInput, "Check-out must be after the check-in date.");
+                }
+            }
+        });
+    
+        checkOutInput.addEventListener("change", function () {
+            const checkInDate = new Date(checkInInput.value);
+            const checkOutDate = new Date(checkOutInput.value);
+    
+            if (!checkInInput.value) {
+                showError(checkOutInput, "Please select a check-in date first.");
+                return;
+            }
+    
+            if (checkOutDate <= checkInDate) {
+                showError(checkOutInput, "Check-out must be after the check-in date.");
+            }
+        });
 });    
 

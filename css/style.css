@@ -62,6 +62,14 @@ body {
 	color: #fff;
 	border-color: #333;
 }
+/* Custom bg-color for explore button */
+.explore-button:hover {
+	color: #333 !important;
+	border-color: #fff !important;
+}
+.explore-button::before {
+    background-color: #fff !important
+}
 .button--ujarak.button--inverted:hover {
 	color: #333;
 	border-color: #fff;
@@ -388,16 +396,21 @@ body {
 }
 
 /* fast-track-service Page */
-.fast-track-service {
+.fast-track-service,
+.accommodation-service,
+.about-us-service,
+.contact-us-service {
     position: relative;
-    background-image: url('../images/fast%20track/Airport%20Departure%20Delays%20Banner.jpg');
     background-size: cover; /* Ensures the image covers the entire div */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
     width: 100%;
     min-height: 60vh;
 }
-.fast-track-service .fast-track-title {
+.fast-track-service .service-title,
+.accommodation-service .service-title,
+.about-us-service .service-title,
+.contact-us-service .service-title {
     font-family: serif;
     color: #fff;
     width: auto;
@@ -405,8 +418,23 @@ body {
     text-shadow: var(--main-text-shadow-style);
     font-weight: bold;
 }
-.fast-track-service .service-content {
+.fast-track-service .service-content,
+.accommodation-service .service-content,
+.about-us-service .service-content,
+.contact-us-service .service-content {
     margin-top: 20%
+}
+.fast-track-service-bg {
+    background-image: url('../images/banner/Airport\ Departure\ Delays\ Banner.jpg');
+}
+.accommodation-service-bg {
+    background-image: url('../images/banner/accommodation.jpg');
+}
+.about-us-bg {
+    background-image: url('../images/about-us/sharm-lanscape.jpg');
+}
+.contact-us-bg {
+    background-image: url('../images/contact-us/contact-us.jpg');
 }
 .overlay {
     position: absolute;
@@ -475,6 +503,7 @@ body {
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
 }
 
 /* Popup Content */
@@ -487,6 +516,11 @@ body {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+#popup-acom {
+    margin-top: 75px;
 }
 
 /* Close Button */
@@ -568,4 +602,35 @@ body {
 }
 .about-us .button:hover {
     color: #fff
+}
+
+/* Contact-us style */
+.contact-form {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px 10px #eee !important;
+}
+
+.contact-form input,
+.contact-form textarea {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    outline: none;
+}
+.popup-fast-service {
+    margin-top: 150px
+}
+.nav-item.dropdown .dropdown-menu {
+    display: none;
+}
+
+.nav-item.dropdown.active .dropdown-menu {
+    display: block;
 }

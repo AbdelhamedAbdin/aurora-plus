@@ -1,0 +1,67 @@
+<!-- popup_service.ejs -->
+<div id="popup-form" class="popup-overlay">
+    <div class="popup-content" id="popup-acom">
+        <span id="close-btn" class="close-btn">&times;</span>
+        <h3>Booking Form</h3>
+        <form id="booking-form" method="post" action="/accommodation">
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" placeholder="type your name..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="nationality">Nationality</label>
+                <select id="nationality" name="nationality" required>
+                    <option value="">Select nationality</option>
+                    <!-- Options will be loaded dynamically from JS -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="phone-number">Phone Number (WhatsApp)</label>
+                <input type="text" id="phone-number" name="phone-number" placeholder="+20..." required>
+                <p class="text-secondary" style="font-size: 12px;font-weight: bold;">Enter a valid WhatsApp number with the country code (e.g., +20XXXXXXXXX)</p>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div id="area-group" class="form-group" style="display: none;">
+                <label for="area">Hotel Area</label>
+                <select id="area" name="area" class="d-block">
+                    <option value="downtown hotels">Downtown Hotels</option>
+                    <option value="new cairo and airport hotels">New Cairo and Airport Hotels</option>
+                    <option value="giza and october hotels">Giza and October Hotels</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="check-in">Check-In Date</label>
+                <input type="date" id="check-in" name="check-in" required>
+            </div>
+
+            <div class="form-group">
+                <label for="check-out">Check-Out Date</label>
+                <input type="date" id="check-out" name="check-out" required>
+            </div>
+
+            <div class="form-group">
+                <label for="extra-note">Extra Note (Optional)</label>
+                <textarea id="extra-note" name="extra-note" rows="4" placeholder="help us to know more about your preferences..."></textarea>
+            </div>
+
+            <input type="hidden" id="service-type" name="service-type" value="">
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<%- include('partials/start_body') %>
+        <!-- Start Carousel -->
+        <div class="contact-us-service contact-us-bg">
+            <div class="overlay">
+                <div class="container">
+                    <div class="service-content">
+                        <h1 class="service-title">
+                            Contact Aurora Plus
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Carousel -->
+
+        <!-- Start BreadCrump -->
+        <nav class="breadcrump-nav" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact Aurora Plus</li>
+                </ol>
+                <hr>
+            </div>
+        </nav>
+        <!-- End BreadCrump -->
+
+        <!-- Start Contact Us -->
+        <div class="contact-us py-5 bg-white">
+            <div class="container">
+            <!-- Error Send To Email -->
+            <% if (wrong_send) { %>
+                <div class="service-sent-successfully mb-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    Something went wrong. Try again later.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <!-- email sent Successfully -->
+                <% if (submitted) { %>
+                    <div class="service-sent-successfully mb-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        Message sent successfully.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+
+                <div class="row g-5 align-items-start">
+                <!-- Contact Info Section -->
+                    <div class="contact-us-head col-lg-6">
+                        <div class="mb-4">
+                            <h2 class="fw-bold">Contact Us</h2>
+                            <p class="text-muted">Reach out through our contact links or send us a direct message below.</p>
+                        </div>
+                        <ul class="list-unstyled">
+                        <li class="d-flex align-items-start mb-4">
+                            <span class="me-3 text-primary fs-4"><i class="fas fa-phone fa-flip-horizontal"></i></span>
+                            <div>
+                            <h5 class="mb-1">Phone</h5>
+                            <a href="tel:+0201067296316" class="text-decoration-none text-dark">
+                                (+202) 01067296316
+                            </a>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <span class="me-3 text-primary fs-4"><i class="far fa-envelope"></i></span>
+                            <div>
+                            <h5 class="mb-1">Email</h5>
+                            <a href="mailto:support@aurora-plus.com" class="text-decoration-none text-dark">
+                                support@aurora-plus.com
+                            </a>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+                    <!-- Contact Form -->
+                    <div class="contact-us-form col-lg-6">
+                        <form action="/contact-us" method="POST" class="contact-form p-4 rounded shadow-sm">
+                        <h3 class="mb-4">Send Us Message</h3>
+                        <p>Do you have anything on your mind to tell? Please don't hesitate to get in touch with us via our contact form .</p>
+                
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" name="fullName" class="form-control" id="fullName" placeholder="John Doe" required>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com" required>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="mobile" class="form-label">Mobile Number</label>
+                            <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="+1 234 567 890" required>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea name="message" class="form-control" id="message" rows="4" placeholder="Write your message..." required></textarea>
+                        </div>
+                
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Contact Us -->
+        <%- include('components/popup_service') %>
+<%- include('partials/end_body') %>

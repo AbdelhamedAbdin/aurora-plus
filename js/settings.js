@@ -1,10 +1,19 @@
-const PORT = process.env.PORT || 3000;
-const WHATSAPP_TOKEN = "2kle8apx6lo2krzm";
-const WHATSAPP_BUSINESS_NUMBER = "+201007422249"
+// load env vars
+require('dotenv').config();
+
+
+const PORT = process.env.PORT;
+const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
+const WHATSAPP_BUSINESS_NUMBER = process.env.WHATSAPP_BUSINESS_NUMBER;
+
+const USER_PROFESSIONAL_EMAIL = process.env.USER_PROFESSIONAL_EMAIL;
+const PASS_PROFESSIONAL_EMAIL = process.env.PASS_PROFESSIONAL_EMAIL;
 
 
 module.exports = {
     PORT,
     WHATSAPP_TOKEN,
-    WHATSAPP_BUSINESS_NUMBER
+    WHATSAPP_BUSINESS_NUMBER,
+    USER_PROFESSIONAL_EMAIL,
+    PASS_PROFESSIONAL_EMAIL
 };

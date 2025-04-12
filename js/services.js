@@ -24,7 +24,6 @@ function BookToWhatsapp(body) {
         
         res.on("end", function () {
             var body = Buffer.concat(chunks);
-            console.log(body.toString());
         });
     });
     var postData = qs.stringify({
@@ -35,5 +34,6 @@ function BookToWhatsapp(body) {
     req.write(postData);
     req.end();
 }
+
 
 module.exports = { BookToWhatsapp };
