@@ -1,21 +1,33 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const { PORT, USER_PROFESSIONAL_EMAIL, PASS_PROFESSIONAL_EMAIL } = require('./js/settings');
+const { PORT, USER_PROFESSIONAL_EMAIL, PASS_PROFESSIONAL_EMAIL, DEBUG_MODE, DEV_PASSWORD } = require('./js/settings');
 const { BookToWhatsapp } = require('./js/services');
 const fs = require('fs');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Middleware: protect everything if DEBUG_MODE
+app.use((req, res, next) => {
+    const loggedIn = req.cookies?.dev_logged_in === '1';
+
+    if (DEBUG_MODE && !loggedIn && req.path !== '/dev-login') {
+        return res.redirect('/dev-login');
+    }
+    next();
+});
 
 // Route for HTML files (optional)
 app.get('/', (req, res) => {
@@ -24,6 +36,22 @@ app.get('/', (req, res) => {
 
 // Serve ALL static files (including nested images) from all directories
 app.use(express.static(path.join(__dirname))); // Serves everything!
+
+
+// Render login page
+app.get('/dev-login', (req, res) => {
+    res.render('login-dev');
+});
+
+// Handle login form POST
+app.post('/dev-login', (req, res) => {
+    const password = req.body.password;
+    if (password === DEV_PASSWORD) {
+        res.cookie('dev_logged_in', '1', { httpOnly: true });
+        return res.redirect('/');
+    }
+    res.render('login-dev', { error: 'Wrong password!' });
+});
 
 // fast-track service APIs
 app.get('/fast-track-service', (req, res) => {

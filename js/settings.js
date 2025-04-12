@@ -9,11 +9,19 @@ const WHATSAPP_BUSINESS_NUMBER = process.env.WHATSAPP_BUSINESS_NUMBER;
 const USER_PROFESSIONAL_EMAIL = process.env.USER_PROFESSIONAL_EMAIL;
 const PASS_PROFESSIONAL_EMAIL = process.env.PASS_PROFESSIONAL_EMAIL;
 
+// Add security layer if DEBUG
+const DEBUG_MODE = Boolean(process.env.DEBUG_MODE) === true;
+const DEV_PASSWORD = process.env.DEV_PASSWORD;
+
 
 module.exports = {
     PORT,
     WHATSAPP_TOKEN,
     WHATSAPP_BUSINESS_NUMBER,
     USER_PROFESSIONAL_EMAIL,
-    PASS_PROFESSIONAL_EMAIL
+    PASS_PROFESSIONAL_EMAIL,
+
+    // Security log
+    DEBUG_MODE,
+    DEV_PASSWORD
 };
