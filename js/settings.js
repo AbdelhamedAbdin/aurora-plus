@@ -10,7 +10,7 @@ const USER_PROFESSIONAL_EMAIL = process.env.USER_PROFESSIONAL_EMAIL;
 const PASS_PROFESSIONAL_EMAIL = process.env.PASS_PROFESSIONAL_EMAIL;
 
 // Add security layer if DEBUG
-const DEBUG_MODE = Boolean(process.env.DEBUG_MODE) === false;
+const DEBUG_MODE = Boolean(process.env.DEBUG_MODE) === true;
 const DEV_PASSWORD = process.env.DEV_PASSWORD;
 
 
