@@ -100,20 +100,33 @@ $(document).ready(function(){
     const popupForm = document.getElementById('popup-form');
     const closeBtn = document.getElementById('close-btn');
     const serviceTypeInput = document.getElementById('service-type');
+    const ticketingFields = document.getElementById('ticketing-fields');
+    const typePlanSelect = document.getElementById('type-plan');
+    const returnDateGroup = document.getElementById('return-date-group');
 
     bookNowButtons.forEach(button => {
         button.addEventListener('click', function () {
-            // Get the closest card title
             const card = button.closest('.card');
             const title = card.querySelector('.card-title').textContent.trim();
 
-            // Set the service type dynamically
             serviceTypeInput.value = title;
-
-            // Show the popup
             popupForm.style.display = 'flex';
+
+            // Show ticketing-specific fields only when applicable
+            if (title.toLowerCase() === 'ticketing') {
+                ticketingFields.style.display = 'block';
+            } else {
+                ticketingFields.style.display = 'none';
+            }
+
+            // Reset fields when reopening
+            if (typePlanSelect) {
+                typePlanSelect.value = "";
+                returnDateGroup.style.display = 'none';
+            }
         });
     });
+
 
     // Close popup
     closeBtn.addEventListener('click', function () {
@@ -143,6 +156,17 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Handle showing "Return Date" only when "Two Way" is selected
+    if (typePlanSelect) {
+        typePlanSelect.addEventListener('change', function () {
+            if (this.value === 'two way') {
+                returnDateGroup.style.display = 'block';
+            } else {
+                returnDateGroup.style.display = 'none';
+            }
+        });
+    }
 
     // Close popup
     document.getElementById('close-btn').addEventListener('click', function () {

@@ -62,14 +62,27 @@ app.get('/fast-track-service', (req, res) => {
 app.post('/fast-track-service', (req, res) => {
     const formData = req.body;
 
+    let ticketingDetails = '';
+    if (formData["service-type"].toLowerCase() === "ticketing") {
+        ticketingDetails = `
+            ✈️ *Type Plan:* ${formData["type-plan"] || "N/A"}
+            📅 *From Date:* ${formData["from-date"] || "N/A"}
+            ${formData["type-plan"] === "two way" ? `📅 *To Date:* ${formData["to-date"] || "N/A"}` : ""}
+            🌍 *From Country:* ${formData["from-country"] || "N/A"}
+            🌎 *To Country:* ${formData["to-country"] || "N/A"}
+        `;
+    }
+
     const message = `
-        🚀 *New Booking Request*
-        👤 *Name:* ${formData["full-name"]}
-        🌍 *Nationality:* ${formData.nationality}
-        📱 *Phone (WhatsApp):* ${formData["phone-number"]}
-        👫 *Gender:* ${formData.gender}
-        📝 *Note:* ${formData["extra-note"] || "N/A"}
-        🎯 *Service Type:* ${formData["service-type"] || "Not specified"}`;
+    🚀 *New Booking Request*
+    👤 *Name:* ${formData["full-name"]}
+    🌍 *Nationality:* ${formData["nationality"]}
+    📱 *Phone (WhatsApp):* ${formData["phone-number"]}
+    👫 *Gender:* ${formData["gender"]}
+    📝 *Note:* ${formData["extra-note"] || "N/A"}
+    🎯 *Service Type:* ${formData["service-type"] || "Not specified"}
+    ${ticketingDetails}
+`;
 
     BookToWhatsapp(message); // Send to WhatsApp
 

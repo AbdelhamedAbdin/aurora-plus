@@ -34,6 +34,38 @@
                 </select>
             </div>
 
+            <!-- Add ticketing form -->
+            <div id="ticketing-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="type-plan">Type of Plan</label>
+                    <select id="type-plan" name="type-plan">
+                        <option value="">Select...</option>
+                        <option value="one way">One Way</option>
+                        <option value="two way">Two Way</option>
+                    </select>
+                </div>
+
+                <div id="date-fields" class="form-group">
+                    <label for="from-date">Departure Date</label>
+                    <input type="date" id="from-date" name="from-date">
+
+                    <div id="return-date-group" style="display: none; margin-top: 10px;">
+                        <label for="to-date">Return Date</label>
+                        <input type="date" id="to-date" name="to-date">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="from-country">From Country</label>
+                    <input type="text" id="from-country" name="from-country" placeholder="Enter origin country">
+                </div>
+
+                <div class="form-group">
+                    <label for="to-country">To Country</label>
+                    <input type="text" id="to-country" name="to-country" placeholder="Enter destination country">
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="extra-note">Extra Note (Optional)</label>
                 <textarea id="extra-note" name="extra-note" rows="4" placeholder="help us to know more about your preferences..."></textarea>
@@ -42,6 +74,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+
         </form>
     </div>
 </div>
