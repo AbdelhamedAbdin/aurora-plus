@@ -115,6 +115,9 @@ body {
 }
 
 /* Navbar */
+.navbar-toggler:focus {
+    box-shadow: unset !important;
+}
 .navbar {
     top: 0;
     width: 100%;

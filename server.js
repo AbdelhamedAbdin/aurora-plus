@@ -148,7 +148,7 @@ app.post('/contact-us', async (req, res) => {
 
     // Create transporter
     const transporter = nodemailer.createTransport({
-        host: 'smtp.secureserver.net',
+        host: 'smtpout.secureserver.net',
         port: 465,
         secure: true,
         auth: {
@@ -159,7 +159,7 @@ app.post('/contact-us', async (req, res) => {
 
     const mailOptions = {
     from: `"${fullName}" <${email}>`,
-    to: 'support@aurora-plus.com',
+    to: USER_PROFESSIONAL_EMAIL,
     subject: `New Contact Message from ${fullName}`,
     html: `
         <h3>New Message from Contact Form</h3>

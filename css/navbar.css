@@ -230,3 +230,41 @@ i {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        display: block !important;
+    }
+
+    .offcanvas {
+        width: 270px;
+        background-color: #000
+    }
+
+    .offcanvas .nav-link {
+        color: #fff;
+        padding: 15px;
+        font-size: 16px;
+		padding-left: 20px
+    }
+
+    .offcanvas .dropdown-menu {
+        background-color: #1e1e2f;
+        border: none;
+    }
+
+    .offcanvas .dropdown-menu .dropdown-item {
+        color: #fff;
+    }
+
+    .offcanvas .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
