@@ -36,6 +36,12 @@
     .navbar {
         height: 60px;
     }
+    .home-slider-context .carousel-item {
+        height: 100vw;
+    }
+    .carousel-content .col-6 {
+        margin-bottom: -20vw;
+    }
 }
 
 @media (min-width: 992px) {

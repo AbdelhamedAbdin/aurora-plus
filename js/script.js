@@ -1,12 +1,13 @@
-var myCarousel = document.querySelector('#carouselHome');
-var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: true,  // Disables auto-cycling
-    interval: 4000,
-})
-
-
 // Add Slider for Fast and Track Service
-$(document).ready(function(){
+document.addEventListener("DOMContentLoaded", function () {
+
+    var myCarousel = document.querySelector('#carouselHome');
+    if (myCarousel) {
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: true,  // Disables auto-cycling
+            interval: 4000,
+        });
+    }
 
     // nav-link active
     document.querySelectorAll("li[data-nav-link]").forEach(listOfLinks => {
@@ -103,35 +104,42 @@ $(document).ready(function(){
     const ticketingFields = document.getElementById('ticketing-fields');
     const typePlanSelect = document.getElementById('type-plan');
     const returnDateGroup = document.getElementById('return-date-group');
+    let option = [];
 
     bookNowButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const card = button.closest('.card');
-            const title = card.querySelector('.card-title').textContent.trim();
+        ['click', 'touchstart'].forEach(evt => {
+            button.addEventListener(evt, function () {
+                const card = button.closest('.card');
+                const title = card.querySelector('.card-title').textContent.trim();
 
-            serviceTypeInput.value = title;
-            popupForm.style.display = 'flex';
+                serviceTypeInput.value = title;
+                popupForm.style.display = 'flex';
 
-            // Show ticketing-specific fields only when applicable
-            if (title.toLowerCase() === 'ticketing') {
-                ticketingFields.style.display = 'block';
-            } else {
-                ticketingFields.style.display = 'none';
-            }
+                // Show ticketing-specific fields only when applicable
+                if (typePlanSelect) {
+                    if (title.toLowerCase() === 'ticketing') {
+                        ticketingFields.style.display = 'block';
+                    } else {
+                        ticketingFields.style.display = 'none';
+                    }
+                }
 
-            // Reset fields when reopening
-            if (typePlanSelect) {
-                typePlanSelect.value = "";
-                returnDateGroup.style.display = 'none';
-            }
+                // Reset fields when reopening
+                if (typePlanSelect) {
+                    typePlanSelect.value = "";
+                    returnDateGroup.style.display = 'none';
+                }
+            });
         });
     });
 
 
     // Close popup
-    closeBtn.addEventListener('click', function () {
-        popupForm.style.display = 'none';
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            popupForm.style.display = 'none';
+        });
+    }
 
     // Close when clicking outside
     window.addEventListener('click', function (event) {
@@ -142,18 +150,22 @@ $(document).ready(function(){
 
     // Example popup open logic from your button
     bookNowButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const serviceType = this.closest('.card').querySelector('h5').textContent.trim();
-            document.getElementById('popup-form').style.display = 'block';
-            document.getElementById('service-type').value = serviceType;
+        ['click', 'touchstart'].forEach(evt => {
+            btn.addEventListener(evt, function () {
+                const serviceType = this.closest('.card').querySelector('h5').textContent.trim();
+                document.getElementById('popup-form').style.display = 'block';
+                document.getElementById('service-type').value = serviceType;
 
-            // Show/hide "area" field only if Cairo is selected
-            const areaGroup = document.getElementById('area-group');
-            if (serviceType.toLowerCase().includes('cairo')) {
-                areaGroup.style.display = 'block';
-            } else {
-                areaGroup.style.display = 'none';
-            }
+                // Show/hide "area" field only if Cairo is selected
+                const areaGroup = document.getElementById('area-group');
+                if (areaGroup) {
+                    if (serviceType.toLowerCase().includes('cairo')) {
+                        areaGroup.style.display = 'block';
+                    } else {
+                        areaGroup.style.display = 'none';
+                    }
+                }
+            });
         });
     });
 
@@ -169,9 +181,9 @@ $(document).ready(function(){
     }
 
     // Close popup
-    document.getElementById('close-btn').addEventListener('click', function () {
-        document.getElementById('popup-form').style.display = 'none';
-    });
+    // document.getElementById('close-btn').addEventListener('click', function () {
+    //     document.getElementById('popup-form').style.display = 'none';
+    // });
 
     // Load nationalities
     fetch('/api/nationalities')
@@ -179,55 +191,70 @@ $(document).ready(function(){
         .then(nationalities => {
             const select = document.getElementById('nationality');
             nationalities.forEach(nat => {
-                const option = document.createElement('option');
+                option = document.createElement('option');
                 option.value = nat;
                 option.textContent = nat;
                 select.appendChild(option);
             });
         });
 
-        const checkInInput = document.getElementById("check-in");
-        const checkOutInput = document.getElementById("check-out");
-    
-        function showError(input, message) {
-            alert(message); // or show under input with custom element
-            input.value = "";
-            input.focus();
-        }
-    
-        checkInInput.addEventListener("change", function () {
-            const today = new Date();
-            const selectedDate = new Date(checkInInput.value);
-            
-            today.setHours(0, 0, 0, 0);
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-    
-            if (selectedDate < tomorrow) {
-                showError(checkInInput, "Check-in date must be at least from tomorrow.");
+        // Prevent error if option has no selector
+        if (option) {
+            const checkInInput = document.getElementById("check-in");
+            const checkOutInput = document.getElementById("check-out");
+            console.log(checkInInput);
+        
+            function showError(input, message) {
+                alert(message); // or show under input with custom element
+                input.value = "";
+                input.focus();
             }
-    
-            // Reset check-out if it no longer makes sense
-            if (checkOutInput.value) {
+        
+            checkInInput.addEventListener("change", function () {
+                const today = new Date();
+                const selectedDate = new Date(checkInInput.value);
+                
+                today.setHours(0, 0, 0, 0);
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+        
+                if (selectedDate < tomorrow) {
+                    showError(checkInInput, "Check-in date must be at least from tomorrow.");
+                }
+        
+                // Reset check-out if it no longer makes sense
+                if (checkOutInput.value) {
+                    const checkOutDate = new Date(checkOutInput.value);
+                    if (checkOutDate <= selectedDate) {
+                        showError(checkOutInput, "Check-out must be after the check-in date.");
+                    }
+                }
+            });
+
+            checkOutInput.addEventListener("change", function () {
+                const checkInDate = new Date(checkInInput.value);
                 const checkOutDate = new Date(checkOutInput.value);
-                if (checkOutDate <= selectedDate) {
+        
+                if (!checkInInput.value) {
+                    showError(checkOutInput, "Please select a check-in date first.");
+                    return;
+                }
+        
+                if (checkOutDate <= checkInDate) {
                     showError(checkOutInput, "Check-out must be after the check-in date.");
                 }
-            }
-        });
-    
-        checkOutInput.addEventListener("change", function () {
-            const checkInDate = new Date(checkInInput.value);
-            const checkOutDate = new Date(checkOutInput.value);
-    
-            if (!checkInInput.value) {
-                showError(checkOutInput, "Please select a check-in date first.");
-                return;
-            }
-    
-            if (checkOutDate <= checkInDate) {
-                showError(checkOutInput, "Check-out must be after the check-in date.");
-            }
-        });
+            });
+        }
 });    
 
+function reinitSlick() {
+    $('.fast-track-slider').slick('setPosition');
+    $('.card .card-slider').slick('setPosition');
+}
+
+$(window).on('resize orientationchange', function () {
+    setTimeout(reinitSlick, 300); // Delay ensures proper layout after DOM shift
+});
+
+// Optional: trigger once after short delay just in case slick loads before layout stabilizes
+setTimeout(reinitSlick, 1000);
