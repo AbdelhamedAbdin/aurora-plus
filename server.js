@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname))); // Serves everything!
 
 // Render login page
 app.get('/dev-login', (req, res) => {
-    res.render('login-dev');
+    res.render('login-dev', {"DEBUG_MODE": DEBUG_MODE});
 });
 
 // Handle login form POST

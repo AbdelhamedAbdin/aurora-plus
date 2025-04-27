@@ -16,12 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", function () {
         if (window.scrollY > 0) {
             navbar.style.paddingTop = "8px";
-            navbar.style.backgroundColor = "rgba(0, 0, 0, .9)"
+            navbar.style.backgroundColor = "rgba(83, 48, 84, .9)"
         } else {
             navbar.style.paddingTop = "0";
-            navbar.style.backgroundColor = "rgba(0, 0, 0, .3)"
+            navbar.style.backgroundColor = "transparent"
         }
     });
+
+    // Get the real navbar style once the offset > 0
+    if (window.scrollY > 0) {
+        navbar.style.paddingTop = "8px";
+        navbar.style.backgroundColor = "rgba(83, 48, 84, .9)";
+    }
 
     test();
     window.addEventListener("resize", function () {

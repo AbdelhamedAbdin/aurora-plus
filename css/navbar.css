@@ -13,7 +13,8 @@ i {
 :root {
     --main-text-shadow-style: rgb(0, 0, 0) 1px 1px 2px;
     --black-color: #000;
-    --black-tr-color: rgba(0, 0, 0, .3)
+    --black-tr-color: rgba(0, 0, 0, .3);
+	--main-color: rgb(83, 48, 84);
 }
 /*----------bootstrap-navbar-css------------*/
 .navbar {
@@ -244,7 +245,7 @@ i {
 
     .offcanvas {
         width: 270px;
-        background-color: #000
+        background-color: var(--main-color)
     }
 
     .offcanvas .nav-link {
@@ -255,8 +256,8 @@ i {
     }
 
     .offcanvas .dropdown-menu {
-        background-color: #1e1e2f;
-        border: none;
+        background-color: var(--main-color) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .offcanvas .dropdown-menu .dropdown-item {
