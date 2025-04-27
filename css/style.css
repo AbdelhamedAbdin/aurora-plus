@@ -4,7 +4,7 @@
     --black-text: #000;
     --black-tr-text: rgba(0, 0, 0, .3);
     --main-bg-color: rgba(83, 48, 84, 0.9);
-    --main-btn-color: rgba(113, 16, 55, 0.9)
+    --main-btn-color: rgba(113, 16, 55, 0.9);
     /* rgba(61, 192, 202, 0.9) */
     /* rgba(113, 16, 55, 0.9) */
     /* rgba(83, 48, 84) */
@@ -28,6 +28,9 @@ body {
 /* BreadCrump */
 .breadcrump-nav {
     margin-top: 50px;
+}
+.breadcrumb-item > a {
+    color: var(--main-btn-color)
 }
 
 /* Button style inspiration */
@@ -669,9 +672,22 @@ body {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    border-color: rgba(113, 16, 55, 0.9);
+    box-shadow: 0 0 5px var(--main-btn-color);
     outline: none;
+}
+.contact-form button {
+    background-color: var(--main-btn-color);
+    border-color: var(--main-btn-color);
+    color: #FFF
+}
+.contact-form button:hover {
+    background-color: var(--main-btn-color);
+    border-color: var(--main-btn-color);
+    color: #FFF
+}
+.contact-icon {
+    color: var(--main-btn-color);
 }
 
 /* .contact-form input:focus,
