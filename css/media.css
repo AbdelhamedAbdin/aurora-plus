@@ -15,10 +15,10 @@
     }
     /* Carousel */
     .carousel-item img {
-        height: 100vh;
+        height: 70vh;
     }
     .carousel-inner {
-        height: 100vh !important;
+        height: 70vh !important;
     }
     .slide-sub-text {
         display: none !important
