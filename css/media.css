@@ -5,13 +5,33 @@
 }
 
 /* Mobile Screen */
-@media (min-width: 0) and (max-width: 576px) {
+@media (max-width: 576px) {
     .sidebar {
         margin-top: 300px;
         margin-left: 100px
     }
     #navbarSupportedContent {
         background-color: var(--black-color) !important
+    }
+    /* Carousel */
+    .carousel-item img {
+        height: 100vh;
+    }
+    .carousel-inner {
+        height: 100vh !important;
+    }
+    .slide-sub-text {
+        display: none !important
+    }
+    .button--border-medium {
+        font-size: 13px;
+        text-align: center;
+    }
+    .fast-track-service .service-content, 
+    .accommodation-service .service-content, 
+    .about-us-service .service-content, 
+    .contact-us-service .service-content {
+        margin-top: 25vh !important
     }
 }
 
