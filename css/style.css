@@ -224,6 +224,9 @@ body {
     text-shadow: var(--main-text-shadow-style);
     font-weight: bold;
 }
+.carousel-item img {
+    height: 100vh;
+}
 .home-slider-context .slide-sub-text {
     text-shadow: var(--main-text-shadow-style)
 }
@@ -723,4 +726,3 @@ body {
     z-index: 1050;
     overflow-y: auto; /* Important for mobile */
 }
-
