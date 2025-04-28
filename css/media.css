@@ -61,3 +61,18 @@
         font-size: 12px !important;
     }
 }
+
+@media (min-width: 1200px) {
+    .navbar a {
+        font-size: 16px !important
+    }
+    .footer a {
+        font-size: 16px !important
+    }
+    .footer .content {
+        font-size: 16px !important
+    }
+    button {
+        font-size: 20px !important;
+    }
+}
