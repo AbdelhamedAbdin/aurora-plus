@@ -33,6 +33,22 @@
     .contact-us-service .service-content {
         margin-top: 25vh !important
     }
+    /* Footer */
+    .footer .title {
+        margin-bottom: 10px !important;
+    }
+    .footer .mobile-screen-left {
+        text-align: left !important;
+    }
+    .footer .social-link-mobile-screen {
+        text-align: center !important;
+    }
+    .slick-slide-btn-left {
+        display: none !important;
+    }
+    .slick-slide-btn-right {
+        margin-right: 10% !important;
+    }
 }
 
 /* Tablet Screen */
